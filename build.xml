@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="all">
-<property value = "/Users/chengxu/apache-jmeter-5.1.1" name="JMETER_HOME"/>
+<property value = "/root/jmeter/apache-jmeter-5.2.1" name="JMETER_HOME"/>
 <path id="ant.jmeter.classpath">
 <pathelement location="${JMETER_HOME}/extras/ant-jmeter-1.1.1.jar"/>
 </path>
@@ -12,7 +12,7 @@
 <mkdir dir="results/html"/>
 </target>
 <target name="test" depends="clean">
-<jmeter resultlogdir="results/jtl" JMETER_HOME="${JMETER_HOME}">
+<jmeter resultlogdir="results/jtl" jmeterhome="${JMETER_HOME}">
 			<!-- 脚本存放的位置-->  
 <testplans dir ="/root/jmeter/apache-jmeter-5.2.1/TestCase" includes="Firstday.jmx"/>
 <property value="xml" name="jmeter.save.saveservice.output_format"/>
