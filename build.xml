@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="all">
+<property value = "/Users/chengxu/apache-jmeter-5.1.1" name="jmeter-home"/>
+<path id="ant.jmeter.classpath">
+<pathelement location="${jmeter-home}/extras/ant-jmeter-1.1.1.jar"/>
+</path>
+<taskdef name="jmeter" classpathref="ant.jmeter.classpath" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+<target name="clean">
+<delete dir="results"/>
+<delete file="jmeter.log"/>
+<mkdir dir="results/jtl"/>
+<mkdir dir="results/html"/>
+</target>
+<target name="test" depends="clean">
+<jmeter resultlogdir="results/jtl" jmeterhome="${jmeter-home}">
+			<!-- 脚本存放的位置-->  
+<testplans dir ="/root/jmeter/apache-jmeter-5.2.1/TestCase" includes="Firstday.jmx"/>
+<property value="xml" name="jmeter.save.saveservice.output_format"/>
+</jmeter>
+</target>
+
+<target name="report" depends="test">
+<xslt includes="*.jtl" style="${jmeter-home}/extras/jmeter-results-report_21.xsl" destdir="results/html" basedir="results/jtl"/>
+</target>
+<target name="all" depends="test,report"/>
+</project> 
