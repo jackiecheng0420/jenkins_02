@@ -14,7 +14,7 @@
 <target name="test" depends="clean">
 <jmeter resultlogdir="results/jtl" jmeterhome="${JMETER_HOME}">
 			<!-- 脚本存放的位置-->  
-<testplans dir ="/root/jmeter/apache-jmeter-5.2.1/TestCase" includes="Firstday.jmx"/>
+<testplans dir ="/root/jmeter/apache-jmeter-5.2.1/TestCase" includes="API-Request.jmx"/>
 <property value="xml" name="jmeter.save.saveservice.output_format"/>
 </jmeter>
 </target>
